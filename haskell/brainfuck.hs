@@ -41,6 +41,6 @@ evalString tIn (st) ptrIn jmpList | ptrIn >= length(tIn) = putStr ""
 
 main:: IO()
 main = do
-    handle <- openFile "helloWorld.bf" ReadMode
+    handle <- openFile "../helloWorld.bf" ReadMode
     contents <- hGetContents handle
     evalString contents (State 0 (take 10024 (repeat 0))) 0 []

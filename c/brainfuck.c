@@ -9,7 +9,11 @@
 
 int main(int argn, char * argv[]){
     FILE * f;
-    f = fopen(argv[1],"r");
+    if(argn >= 2){
+        f = fopen(argv[1],"r");
+    } else {
+        exit(2);
+    }
     char * out = malloc(FILE_SIZE_MAX*sizeof(char));
     fscanf(f,"%s",out);
 
@@ -83,7 +87,7 @@ int main(int argn, char * argv[]){
                 }
                 break;
             case ',':
-                scanf("%c",cellPtr);
+                scanf("%hd",cellPtr);
                 break;
             default:
                 break;
